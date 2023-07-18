@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira sans', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(130, 130, 241);
+    color: #fff;
+}
+
+header{
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+header h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+.newTaskForm{
+    display: flex;
+}
+
+input, button{
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+}
+#newTaskInput{
+    flex: 1 1 0;
+    border-radius: 1rem;
+    background-color: rgb(62, 58, 58);
+    padding: 1rem;
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 1.25rem;
+}
+#newTaskInput::placeholder{
+    color: #fff;
+}
+#newTaskSubmit{
+    border: none;
+    color: black;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    border: 2px solid #f44336;
+    border-radius: 1rem;
+}
+#newTaskSubmit:hover{
+    background-color: #f44336;
+    color: white;
+}
+
+main{
+    flex: 1 1 0;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.taskList{
+    padding: 1rem;
+}
+.taskList h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(47, 47, 45);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+.content{
+    flex: 1 1 0%;
+}
+
+.delete{
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: crimson;
+}
+
+.text{
+    color: #fff;
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+}

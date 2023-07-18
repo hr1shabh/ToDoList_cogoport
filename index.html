@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>To Do List</h1>
+        <form class="newTaskForm" onsubmit="return false">
+            <input type="text" id="newTaskInput" placeholder="Write the task">
+            <input type="submit" id="newTaskSubmit" value="Add Task" onclick="addItem()">
+        </form>
+    </header>
+    <main>
+        <section class="taskList">
+            <h2>Tasks</h2>
+            <div id="tasks">
+                <!-- <div class="task">
+                    <div class="content">
+                        <input type="text" class="s" value="complete Project 1" readonly>
+                    </div>
+                    <div class="action">
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>   -->
+            </div>  
+        </section>
+        
+    </main>
+    <script>
+        // console.log("Hllo");
+        let todoItems = [];
+        function renderTodoList() {
+            const todoList = document.getElementById('tasks');
+            todoList.innerHTML = ''; // Clear the existing list
+            // console.log(todoItems.length);
+            for (let i = 0; i < todoItems.length; i++) {
+            const item = todoItems[i];
+            // console.log(i)
+            // console.log(item);
+            const taskElement = document.createElement("div");
+            taskElement.classList.add("task");
+            const content = document.createElement('div');
+            content.classList.add("content");
+            taskElement.appendChild(content);
+            const taskInput = document.createElement('input')
+            taskInput.classList.add('text')
+            taskInput.value = item;
+            taskInput.setAttribute("readonly", "readonly");
+            content.appendChild(taskInput)
+            
+            const actionElement = document.createElement("div");
+            actionElement.classList.add("action");
+            const deleteBtn = document.createElement("button");
+            deleteBtn.classList.add("delete");
+            deleteBtn.innerHTML = "Delete";
+            deleteBtn.onclick = function(){
+                deleteItem(i);
+            }
+            actionElement.appendChild(deleteBtn);
+            taskElement.appendChild(actionElement);
+            todoList.appendChild(taskElement);
+
+            }
+        }
+
+        function addItem() {
+            const inputItem = document.getElementById('newTaskInput');
+            const newItem = inputItem.value.trim();
+            // console.log(newItem);
+            if (newItem !== '') {
+            todoItems.push(newItem);
+            renderTodoList();
+            inputItem.value = ''; // Clear the input field
+            }
+        }
+
+        function deleteItem(index) {
+            todoItems.splice(index, 1);
+            renderTodoList();
+        }
+
+    </script>
+</body>
+</html>
