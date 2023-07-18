@@ -75,13 +75,28 @@
             todoItems.push(newItem);
             renderTodoList();
             inputItem.value = ''; // Clear the input field
+            saveTodoItems();
             }
         }
 
         function deleteItem(index) {
             todoItems.splice(index, 1);
             renderTodoList();
+            saveTodoItems();
         }
+
+        function saveTodoItems() {
+            localStorage.setItem('todoItems', JSON.stringify(todoItems));
+        }
+
+        function loadTodoItems() {
+        const storedItems = localStorage.getItem('todoItems');
+        if (storedItems) {
+            todoItems = JSON.parse(storedItems);
+            renderTodoList();
+        }
+        }
+        loadTodoItems();
 
     </script>
 </body>
